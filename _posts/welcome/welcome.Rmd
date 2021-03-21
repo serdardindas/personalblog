@@ -1,0 +1,18 @@
+---
+title: "Welcome to My Blog"
+description: |
+  Stay tuned for upcoming posts
+author:
+  - name: Serdar DINDAS 
+    url: 
+    affiliation: 
+    affiliation_url: 
+date: 03-21-2021
+preview: img/ilovecoding.png
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+

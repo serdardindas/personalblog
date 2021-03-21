@@ -1,0 +1,19 @@
+---
+title: "Serdar"
+image: "img/avatar.jpg"
+links:
+  - label: LinkedIn
+    url: "https://www.linkedin.com/in/serdardindas/"
+  - label: Twitter
+    url: "https://twitter.com/soncylon"
+  - label: GitHub
+    url: "https://github.com/serdardindas/"
+  - label: Email
+    url: "mailto:serdardindas@gmail.com"
+output:
+  postcards::jolla
+---
+
+Welcome to my site!
+
+Thank you for visiting my site, hope you enjoy!

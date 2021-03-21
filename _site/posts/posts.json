@@ -1,0 +1,19 @@
+[
+  {
+    "path": "posts/welcome/",
+    "title": "Welcome to My Blog",
+    "description": "Stay tuned for upcoming posts",
+    "author": [
+      {
+        "name": "Serdar DINDAS",
+        "url": {}
+      }
+    ],
+    "date": "2021-03-21",
+    "categories": [],
+    "contents": "\r\n\r\n\r\n\r\n",
+    "preview": "posts/welcome/img/ilovecoding.png",
+    "last_modified": "2021-03-21T22:37:07+03:00",
+    "input_file": {}
+  }
+]
