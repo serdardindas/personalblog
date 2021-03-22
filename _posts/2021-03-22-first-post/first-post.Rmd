@@ -1,0 +1,20 @@
+---
+title: "First Post"
+description: |
+  Try to send my new post
+author:
+  - name: Serdar DINDAS
+    url: {}
+date: 03-22-2021
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+This is my **first** blog post. I will use *Netlify* via *Github*
+
+Thanks for **Lisa Lendway** for amazing **distill** package tutorial.
+
+And here is the motivation cutties from **Allison Horst**
+
+1.  ![](img/cutties.jpg){width="600"}

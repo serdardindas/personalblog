@@ -15,5 +15,22 @@
     "preview": "posts/welcome/img/ilovecoding.png",
     "last_modified": "2021-03-21T22:37:07+03:00",
     "input_file": {}
+  },
+  {
+    "path": "posts/2021-03-22-first-post/",
+    "title": "First Post",
+    "description": "Try to send my new post",
+    "author": [
+      {
+        "name": "Serdar DINDAS",
+        "url": {}
+      }
+    ],
+    "date": "2021-03-22",
+    "categories": [],
+    "contents": "\r\nThis is my first blog post. I will use Netlify via Github\r\nThanks for Lisa Lendway for amazing distill package tutorial.\r\nAnd here is the motivation cutties from Allison Horst\r\n\r\n\r\n\r\n\r\n",
+    "preview": {},
+    "last_modified": "2021-03-22T14:57:01+03:00",
+    "input_file": "first-post.utf8.md"
   }
 ]
