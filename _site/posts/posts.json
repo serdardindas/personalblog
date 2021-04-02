@@ -13,8 +13,8 @@
     "categories": [],
     "contents": "\r\nThis is my first blog post. I will use Netlify via Github\r\nThanks for Lisa Lendway for amazing distill package tutorial.\r\nAnd here is the motivation cutties from Allison Horst\r\n\r\n\r\n\r\n\r\n",
     "preview": {},
-    "last_modified": "2021-03-22T14:57:01+03:00",
-    "input_file": "first-post.utf8.md"
+    "last_modified": "2021-03-22T14:57:02+03:00",
+    "input_file": {}
   },
   {
     "path": "posts/welcome/",
@@ -31,6 +31,6 @@
     "contents": "\r\n\r\n\r\n\r\n",
     "preview": {},
     "last_modified": "2021-03-22T15:00:16+03:00",
-    "input_file": "welcome.utf8.md"
+    "input_file": {}
   }
 ]
