@@ -8,6 +8,7 @@ author:
 date: 04-08-2021
 output:
   distill::distill_article:
+    toc: true
     css: styles.css
     self_contained: false
 ---
@@ -106,7 +107,7 @@ ggplot(df, aes(x = year , y = Proportion, fill = Results)) +
 
 Now we change some appearance of graph in **theme()** function part. We make some
 
-```{r fig.width=12, fig.height=2}
+```{r fig.width=12, fig.height=2, preview=TRUE}
 ggplot(df, aes(x = year , y = Proportion, fill = Results)) + 
         geom_col()+
         geom_text(aes(label = paste0(Proportion, "%")),
