@@ -117,7 +117,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["horizontal-stacked-bar-chart_files/anchor-4.2.2/anchor.min.js","horizontal-stacked-bar-chart_files/bowser-1.9.3/bowser.min.js","horizontal-stacked-bar-chart_files/distill-2.2.21/template.v2.js","horizontal-stacked-bar-chart_files/figure-html5/unnamed-chunk-3-1.png","horizontal-stacked-bar-chart_files/figure-html5/unnamed-chunk-4-1.png","horizontal-stacked-bar-chart_files/figure-html5/unnamed-chunk-5-1.png","horizontal-stacked-bar-chart_files/figure-html5/unnamed-chunk-6-1.png","horizontal-stacked-bar-chart_files/figure-html5/unnamed-chunk-7-1.png","horizontal-stacked-bar-chart_files/figure-html5/unnamed-chunk-8-1.png","horizontal-stacked-bar-chart_files/header-attrs-2.7/header-attrs.js","horizontal-stacked-bar-chart_files/jquery-1.11.3/jquery.min.js","horizontal-stacked-bar-chart_files/popper-2.6.0/popper.min.js","horizontal-stacked-bar-chart_files/tippy-6.2.7/tippy-bundle.umd.min.js","horizontal-stacked-bar-chart_files/tippy-6.2.7/tippy-light-border.css","horizontal-stacked-bar-chart_files/tippy-6.2.7/tippy.css","horizontal-stacked-bar-chart_files/tippy-6.2.7/tippy.umd.min.js","horizontal-stacked-bar-chart_files/webcomponents-2.0.0/webcomponents.js","img/thumnail-chart.png","img/Unity_2021_Gaming_Report.png","styles.css"]}
+  {"type":"character","attributes":{},"value":["horizontal-stacked-bar-chart_files/anchor-4.2.2/anchor.min.js","horizontal-stacked-bar-chart_files/bowser-1.9.3/bowser.min.js","horizontal-stacked-bar-chart_files/distill-2.2.21/template.v2.js","horizontal-stacked-bar-chart_files/figure-html5/unnamed-chunk-3-1.png","horizontal-stacked-bar-chart_files/figure-html5/unnamed-chunk-4-1.png","horizontal-stacked-bar-chart_files/figure-html5/unnamed-chunk-5-1.png","horizontal-stacked-bar-chart_files/figure-html5/unnamed-chunk-6-1.png","horizontal-stacked-bar-chart_files/figure-html5/unnamed-chunk-7-1.png","horizontal-stacked-bar-chart_files/figure-html5/unnamed-chunk-8-1.png","horizontal-stacked-bar-chart_files/header-attrs-2.7/header-attrs.js","horizontal-stacked-bar-chart_files/jquery-1.11.3/jquery.min.js","horizontal-stacked-bar-chart_files/popper-2.6.0/popper.min.js","horizontal-stacked-bar-chart_files/tippy-6.2.7/tippy-bundle.umd.min.js","horizontal-stacked-bar-chart_files/tippy-6.2.7/tippy-light-border.css","horizontal-stacked-bar-chart_files/tippy-6.2.7/tippy.css","horizontal-stacked-bar-chart_files/tippy-6.2.7/tippy.umd.min.js","horizontal-stacked-bar-chart_files/webcomponents-2.0.0/webcomponents.js","img/Unity_2021_Gaming_Report.png","styles.css"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -2104,15 +2104,15 @@ document.addEventListener('DOMContentLoaded', function() {
 <h3>Contents</h3>
 <ul>
 <li><a href="#step-1.-data-and-packages"><em>STEP 1.</em> / Data and Packages</a></li>
-<li><a href="#step-2.-simple-chart"><em>STEP 2.</em> / Simple Chart</a></li>
+<li><a href="#step-2.-simple-start"><em>STEP 2.</em> / Simple Start</a></li>
 <li><a href="#step-3.-rest-of-it"><em>STEP 3.</em> / Rest Of It :)</a></li>
 </ul>
 </nav>
 </div>
-<p>Hello Dear Rstats friends, with this post I will try to help you how you could create horizontal stacked bar chart. This is my first post i hope you enjoy.</p>
+<p>Hello dear Rstats friends, with this post I will try to help you how you could create horizontal stacked bar chart. This is my first post i hope you enjoy.</p>
 <p>Firstly i want to show you an example of horizontal stacked chart.</p>
 <p><img src="img/Unity_2021_Gaming_Report.png" width="800" /></p>
-<p>This chart belongs to <a href="https://img06.en25.com/Web/Unity/%7B4645ad28-63a3-4348-bc5b-dc09f2811419%7D_Unity_2021-Gaming-Report.pdf?elqTrackId=b795db85e6924d669757d6f8ef3db1a7&amp;elqaid=3200&amp;elqat=2" target="&quot;_blank">Unity’s 2021 GamingReport</a>. Unity is world’s leading platform for creating games. If you’re a person who is game developer you must heard of this.</p>
+<p>This chart belongs to <a href="https://img06.en25.com/Web/Unity/%7B4645ad28-63a3-4348-bc5b-dc09f2811419%7D_Unity_2021-Gaming-Report.pdf?elqTrackId=b795db85e6924d669757d6f8ef3db1a7&amp;elqaid=3200&amp;elqat=2" target="&quot;_blank">Unity’s 2021 GamingReport</a>. Unity is world’s leading platform for creating games. If you’re a person who is game developer you must heard of it.</p>
 <p>So in this chart we will see 4 components. 3 of it is our charts, one of it its’ labels. We will create this chart step by step.</p>
 <p>We will use <strong>ggplot</strong> package to create each three charts, and <strong>patchwork</strong> package to combine all three charts. together.</p>
 <h3 id="step-1.-data-and-packages"><em>STEP 1.</em> / Data and Packages</h3>
@@ -2135,7 +2135,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </code></pre>
 </div>
 </div>
-<h3 id="step-2.-simple-chart"><em>STEP 2.</em> / Simple Chart</h3>
+<h3 id="step-2.-simple-start"><em>STEP 2.</em> / Simple Start</h3>
 <p>After this step lets try to make our first basic graph.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2146,7 +2146,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 <p>You see bar plot is stacked but vertically. Colors are defined randomly.</p>
 <h3 id="step-3.-rest-of-it"><em>STEP 3.</em> / Rest Of It :)</h3>
-<p>Now we can turn the bar plot horizontally wit <strong><em>coord_flip()</em></strong> function</p>
+<p>Now we can turn the bar plot horizontally with <strong><em>coord_flip()</em></strong> function.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>df</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>year</span> , y <span class='op'>=</span> <span class='va'>Proportion</span>, fill <span class='op'>=</span> <span class='va'>Results</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> 
@@ -2156,7 +2156,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 <p><img src="horizontal-stacked-bar-chart_files/figure-html5/unnamed-chunk-4-1.png" width="1152" /></p>
 </div>
-<p>At this time if you look closely to the labels, You may notice a discrepancy in the ranking of legends, they sorted in alphabetical order. To avoid from this situation we will factorize <strong>Results</strong> column. This will help you give all elements in Results column a specific order.</p>
+<p>At this time if you look closely to the labels, You may notice a discrepancy in the ranking of legends, they sorted in alphabetical order. To avoid from this situation we will factorize <strong>Results</strong> column. This will help you to give all elements, in Results column, a specific order.</p>
 <div class="layout-chunk" data-layout="1-body_outset">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>df</span><span class='op'>$</span><span class='va'>Results</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>df</span><span class='op'>$</span><span class='va'>Results</span>, levels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Strongly Agree"</span>,<span class='st'>"Agree"</span>, <span class='st'>"Neither agree nor disagree"</span>,
@@ -2169,7 +2169,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 <p><img src="horizontal-stacked-bar-chart_files/figure-html5/unnamed-chunk-5-1.png" width="1152" /></p>
 </div>
-<p>Now we can adjust the appearance of colors in this stage. You can use google chrome extension <span class="important">“Eye Dropper”</span> to extract colors codes. I chose colors to match the original.</p>
+<p>Now we can adjust the appearance of colors in this stage. You can use google chrome extension <span class="important">“Eye Dropper”</span> to extract colors codes. I choose colors to match the original.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>df</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>year</span> , y <span class='op'>=</span> <span class='va'>Proportion</span>, fill <span class='op'>=</span> <span class='va'>Results</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> 
@@ -2194,7 +2194,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 <p><img src="horizontal-stacked-bar-chart_files/figure-html5/unnamed-chunk-7-1.png" width="1152" /></p>
 </div>
-<p>Now we change some appearance of graph in <strong>theme()</strong> function part. We make some</p>
+<p>Now we change some appearance of graph inside <strong>theme()</strong> function. We can remove graph grids, title, ticks.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>df</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>year</span> , y <span class='op'>=</span> <span class='va'>Proportion</span>, fill <span class='op'>=</span> <span class='va'>Results</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> 
@@ -2217,6 +2217,11 @@ document.addEventListener('DOMContentLoaded', function() {
 </code></pre>
 </div>
 <p><img src="horizontal-stacked-bar-chart_files/figure-html5/unnamed-chunk-8-1.png" width="1152" data-distill-preview=1 /></p>
+</div>
+<p>After making this simple chart we can create 3 of them and combine together. This time we will use <a href="htthttps://patchwork.data-imaginist.com/ps://patchwork.data-imaginist.com/">patchwork</a> package to glue them.</p>
+<p>Lets create 3 part of horizontal stacked bar chart for different data.</p>
+<div class="layout-chunk" data-layout="l-body">
+
 </div>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->

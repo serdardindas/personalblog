@@ -17,13 +17,13 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-Hello Dear Rstats friends, with this post I will try to help you how you could create horizontal stacked bar chart. This is my first post i hope you enjoy.
+Hello dear Rstats friends, with this post I will try to help you how you could create horizontal stacked bar chart. This is my first post i hope you enjoy.
 
 Firstly i want to show you an example of horizontal stacked chart.
 
 ![](img/Unity_2021_Gaming_Report.png){width="800"}
 
-This chart belongs to [Unity's 2021 GamingReport](https://img06.en25.com/Web/Unity/%7B4645ad28-63a3-4348-bc5b-dc09f2811419%7D_Unity_2021-Gaming-Report.pdf?elqTrackId=b795db85e6924d669757d6f8ef3db1a7&elqaid=3200&elqat=2){target="\"_blank"}. Unity is world's leading platform for creating games. If you're a person who is game developer you must heard of this.
+This chart belongs to [Unity's 2021 GamingReport](https://img06.en25.com/Web/Unity/%7B4645ad28-63a3-4348-bc5b-dc09f2811419%7D_Unity_2021-Gaming-Report.pdf?elqTrackId=b795db85e6924d669757d6f8ef3db1a7&elqaid=3200&elqat=2){target="\"_blank"}. Unity is world's leading platform for creating games. If you're a person who is game developer you must heard of it.
 
 So in this chart we will see 4 components. 3 of it is our charts, one of it its' labels. We will create this chart step by step.
 
@@ -48,7 +48,7 @@ Next we create our data frame
 df <- df %>%  mutate(year=1) # This is little trick as I mentioned before. We add dummy variable like "year" as i used.
 ```
 
-### *STEP 2.* / Simple Chart
+### *STEP 2.* / Simple Start
 
 After this step lets try to make our first basic graph.
 
@@ -60,7 +60,7 @@ You see bar plot is stacked but vertically. Colors are defined randomly.
 
 ### *STEP 3.* / Rest Of It :)
 
-Now we can turn the bar plot horizontally wit ***coord_flip()*** function
+Now we can turn the bar plot horizontally with ***coord_flip()*** function.
 
 ```{r fig.width=12, fig.height=2}
 ggplot(df, aes(x = year , y = Proportion, fill = Results)) + 
@@ -68,7 +68,7 @@ ggplot(df, aes(x = year , y = Proportion, fill = Results)) +
         coord_flip()
 ```
 
-At this time if you look closely to the labels, You may notice a discrepancy in the ranking of legends, they sorted in alphabetical order. To avoid from this situation we will factorize **Results** column. This will help you give all elements in Results column a specific order.
+At this time if you look closely to the labels, You may notice a discrepancy in the ranking of legends, they sorted in alphabetical order. To avoid from this situation we will factorize **Results** column. This will help you to give all elements, in Results column, a specific order.
 
 ```{r fig.width=12, fig.height=2, layout="1-body_outset"}
 df$Results <- factor(df$Results, levels = c("Strongly Agree","Agree", "Neither agree nor disagree",
@@ -79,7 +79,7 @@ ggplot(df, aes(x = year , y = Proportion, fill = Results)) +
         coord_flip()
 ```
 
-Now we can adjust the appearance of colors in this stage. You can use google chrome extension ["Eye Dropper" ]{.important} to extract colors codes. I chose colors to match the original.
+Now we can adjust the appearance of colors in this stage. You can use google chrome extension ["Eye Dropper"]{.important} to extract colors codes. I choose colors to match the original.
 
 ```{r fig.width=12, fig.height=2}
 
@@ -105,7 +105,7 @@ ggplot(df, aes(x = year , y = Proportion, fill = Results)) +
 
 ```
 
-Now we change some appearance of graph in **theme()** function part. We make some
+Now we change some appearance of graph inside **theme()** function. We can remove graph grids, title, ticks.
 
 ```{r fig.width=12, fig.height=2, preview=TRUE}
 ggplot(df, aes(x = year , y = Proportion, fill = Results)) + 
@@ -125,5 +125,13 @@ ggplot(df, aes(x = year , y = Proportion, fill = Results)) +
               axis.text = element_blank(),
               legend.title = element_blank())+ #Remove title of legend
               guides(fill = guide_legend(reverse=TRUE)) # Reverse legend order as it shows in report.
+
+```
+
+After making this simple chart we can create 3 of them and combine together. This time we will use [patchwork](htthttps://patchwork.data-imaginist.com/ps://patchwork.data-imaginist.com/) package to glue them.
+
+Lets create 3 part of horizontal stacked bar chart for different data.
+
+```{r, code_folding=TRUE}
 
 ```
