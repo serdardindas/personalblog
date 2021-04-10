@@ -58,7 +58,7 @@ ggplot(df, aes(x = year , y = Proportion, fill = Results)) + geom_col()
 
 You see bar plot is stacked but vertically. Colors are defined randomly.
 
-### *STEP 3.* / Rest Of It `r emo::ji("smile")`
+### *STEP 3.* / Rest Of It :)
 
 Now we can turn the bar plot horizontally with ***coord_flip()*** function.
 
