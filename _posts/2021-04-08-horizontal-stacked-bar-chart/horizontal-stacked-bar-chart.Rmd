@@ -58,7 +58,7 @@ ggplot(df, aes(x = year , y = Proportion, fill = Results)) + geom_col()
 
 You see bar plot is stacked but vertically. Colors are defined randomly.
 
-### *STEP 3.* / Rest Of It :)
+### *STEP 3.* / Rest Of It `r emo::ji("smile")`
 
 Now we can turn the bar plot horizontally with ***coord_flip()*** function.
 
@@ -128,10 +128,106 @@ ggplot(df, aes(x = year , y = Proportion, fill = Results)) +
 
 ```
 
-After making this simple chart we can create 3 of them and combine together. This time we will use [patchwork](htthttps://patchwork.data-imaginist.com/ps://patchwork.data-imaginist.com/) package to glue them.
+After making this simple chart we can create 3 of them and combine together. This time we will use [**patchwork**](htthttps://patchwork.data-imaginist.com/ps://patchwork.data-imaginist.com/) package to glue them.
 
-Lets create 3 part of horizontal stacked bar chart for different data.
+Let's create 3 part of horizontal stacked bar chart for different data. Each of this graphs will named [***p1, p2 and p3***]{.important}. If you want to check the code you can click **Show code**.
 
 ```{r, code_folding=TRUE}
 
+
+df <- data.frame(Results = c("Strongly Agree","Agree", "Neither agree nor disagree", "Disagree","Strongly Disagree"),
+                       Proportion = c(50,19,6,13,13))
+
+df <- df %>%  mutate(year=1) 
+
+df$Results <- factor(df$Results, levels = c("Strongly Agree","Agree",
+                                            "Neither agree nor disagree","Disagree","Strongly Disagree"))
+
+p1 <-ggplot(df, aes(x = year , y = Proportion, fill = Results)) + 
+        geom_col()+
+        geom_text(aes(label = paste0(Proportion, "%")),
+                      position = position_stack(vjust = 0.5), 
+                      size = 5)+ 
+        scale_fill_manual(values = c("#67bc6b","#d2e059","#ffcb27","#f37021","#ed5351"))+
+        coord_flip()+ 
+        theme(legend.position = "right",
+              panel.grid.major = element_blank(), 
+              panel.grid.minor = element_blank(),
+              panel.border = element_blank(),
+              panel.background = element_blank(), 
+              axis.title = element_blank(),
+              axis.ticks = element_blank(),
+              axis.text = element_blank(),
+              legend.title = element_blank())+
+              guides(fill = guide_legend(reverse=TRUE))
+
+df2 <- df %>% mutate(Proportion2=c(25,25,13,13,6))
+
+df3 <- df %>% mutate(Proportion3=c(19,25,19,25,13)) 
+
+
+p2 <-ggplot(df2, aes(x = year , y = Proportion2, fill = Results)) + 
+        geom_col()+
+        geom_text(aes(label = paste0(Proportion2, "%")),
+                      position = position_stack(vjust = 0.5), 
+                      size = 5)+ 
+        scale_fill_manual(values = c("#67bc6b","#d2e059","#ffcb27","#f37021","#ed5351"))+
+        coord_flip()+ 
+        theme(legend.position = "right",
+              panel.grid.major = element_blank(), 
+              panel.grid.minor = element_blank(),
+              panel.border = element_blank(),
+              panel.background = element_blank(), 
+              axis.title = element_blank(),
+              axis.ticks = element_blank(),
+              axis.text = element_blank(),
+              legend.title = element_blank())+
+              guides(fill = guide_legend(reverse=TRUE))
+
+p3 <-ggplot(df3, aes(x = year , y = Proportion3, fill = Results)) + 
+        geom_col()+
+        geom_text(aes(label = paste0(Proportion3, "%")),
+                      position = position_stack(vjust = 0.5), 
+                      size = 5)+ 
+        scale_fill_manual(values = c("#67bc6b","#d2e059","#ffcb27","#f37021","#ed5351"))+
+        coord_flip()+ 
+        theme(legend.position = "right",
+              panel.grid.major = element_blank(), 
+              panel.grid.minor = element_blank(),
+              panel.border = element_blank(),
+              panel.background = element_blank(), 
+              axis.title = element_blank(),
+              axis.ticks = element_blank(),
+              axis.text = element_blank(),
+              legend.title = element_blank())+
+              guides(fill = guide_legend(reverse=TRUE))
+
 ```
+
+With **patchwork** package you can combine graphs side by side with **"+"** or under each other with **"/"**.
+
+```{r fig.width=12, fig.height=5}
+p1 / p2 / p3 & theme(legend.position = "right",
+                     legend.text = element_text(size=15))
+```
+
+You see each graphs bring their legends with them. So legend part repeat 3 times. To prevent labels from repeating, we will add last line of code **plot_layout(guides = "collect")**
+
+```{r fig.width=12, fig.height=3}
+p <- p1 / p2 / p3 & theme(legend.position = "right",
+                          legend.text = element_text(size=15))
+                    
+p + plot_layout(guides = "collect")
+                    
+```
+
+I thinks two graphs nearly match except one point that Reports graph's legends at the top right but our graph's legend is at the middle right. I belive this can be ignored.
+
+Thanks for reading my post. Please don't hesitate to say your feedback by [`r fontawesome::fa("twitter", fill = "steelblue", height=20)`](https://twitter.com/soncylon)
+
+Also special thanks to my wife Zeliha Dindas for support and code review `r emo::ji("hug")`
+
+\
+\
+
+------------------------------- **This Post Made with** `r fontawesome::fa("r-project", fill = "steelblue", height=20)` **by** `r emo::ji("heart")` ---------------------------------
