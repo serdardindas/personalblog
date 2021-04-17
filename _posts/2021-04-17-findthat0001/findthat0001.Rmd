@@ -1,0 +1,156 @@
+---
+title: "Package: Findthat[0.0.0.1]"
+description: |
+  Find single/multiple strings in data frame
+author:
+  - name: Serdar DINDAS
+    url: {}
+date: 04-15-2021
+preview: icon.png
+output:
+  distill::distill_article:
+    toc: true
+    self_contained: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+![](jesse-ramirez-unsplash.jpg)
+
+Photo by [jesse ramirez](https://unsplash.com/@jesseramirezla?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
+
+Hello dear R users, In this blog post I want to give information and future plans about my experimental R package:"**Findthat**".
+
+Wise man once said;
+
+> [When you've written the same code 3 times, write a function](https://twitter.com/drob/status/928447584712253440)
+>
+> [When you've given the same in-person advice 3 times, write a blog post](https://twitter.com/drob/status/928447584712253440)
+
+In my studies, it is requested to report the information of the data sets containing the desired keywords. Often these keywords will be more than one. The vast majority of these keywords consist of more than one word such as "machine learning" or "artificial intelligence".
+
+These keywords may need to be present together at the same time in the data or to be included independently from each other, or sometimes different words may be inserted between them. In such cases, it may be necessary to enter very complex queries in the classic BI platforms. Complex queries can sometimes cause performance issues.
+
+For this reason, I decided to develop a package that can perform queries in these alternative situations in the relatively small database we use.
+
+The package[[findthat]](https://github.com/serdardindas/findthat) I have prepared is still in the development phase, in my blog post I will talk about the functions included in this package and the improvements plan for the future.
+
+### Install Package
+
+You can install findthat package from github.
+
+```{r echo = T, results = 'hide'}
+devtools::install_github("serdardindas/findthat")
+```
+
+If you don't see findthat package in Packages. I recommend you to **Session -\> Restart R**
+
+To see functions that package contains: First call package than *ls("package:package_name")*
+
+```{r}
+library(findthat)
+ls("package:findthat")
+```
+
+When we ignore the pipe operator, there are 2 functions active in our package right now. These functions are **find_words** and **find_words_all** functions. Now let's see for what purpose these functions are used.
+
+I use [Kaggle Dataset contain BBC News Texts](https://www.kaggle.com/shineucc/bbc-news-dataset) to show how functions work.
+
+```{r}
+BBC_News_Dataset <- readr::read_csv("BBC_News_Dataset.csv")
+
+BBC_News_Dataset %>% head(3)
+```
+
+### Function-1 : find_words()
+
+This function is main function of findthat package. This function finds strings in specific column. It has 2 must arguments and ... for rest.
+
+***find_words(df, column, ...)***
+
++:----------:+:---------------------------------------------------------+
+| **df**     | input data frame                                         |
++------------+----------------------------------------------------------+
+| **column** | column that you search your script                       |
++------------+----------------------------------------------------------+
+| **...**    | your strings for search. Must be lowercase               |
++------------+----------------------------------------------------------+
+
+**find_words()** function lets you find strings separately. You can think that it works like an **"OR"** case.
+
+```{r}
+findthat::find_words(BBC_News_Dataset, "description","chelsea")
+```
+
+With the code above, we search **"chelsea"** keyword only in **"description"** column. It returns 70-row table. So our main data table contains 70 rows with **"chelsea"** keyword only in **"description"** column.
+
+If we want to extract data contains **"chelsea"** **OR** **"arsenal**" in **"description"** column.
+
+```{r}
+findthat::find_words(BBC_News_Dataset, "description","chelsea","arsenal")
+```
+
+It returns 97-row data frame that contains **"chelsea"** or **"arsenal**" in **"description"** column.
+
+### Function-2 : find_words_all()
+
+**find_words_all()** is specific case of **find_words()** for all-column search. You don't need to indicate column, function search all columns.
+
+***find_words_all(df, ...)***
+
++---------+-------------------------------------------------------------+
+| **df**  | input data frame                                            |
++:=======:+:============================================================+
+| **...** | your strings for search. Must be lowercase                  |
++---------+-------------------------------------------------------------+
+
+We can use **find_words_all()** function to find all column that contains **"queen"**
+
+```{r}
+findthat::find_words_all(BBC_News_Dataset,"queen")
+```
+
+It returns a table contains 45-row data.
+
+Again we can apply multiple keyword search.
+
+```{r}
+findthat::find_words_all(BBC_News_Dataset,"queen","prince")
+```
+
+It returns a table contains 72-row data, which contains **"queen"** or **"prince"** in any columns.
+
+### Future Developments
+
+This package is great experience for me. In this process I could get some idea about;
+
+-   how to maintain code
+
+-   what is clean code
+
+-   how can I work with Github
+
+I want to experience improvements on this package and continue to add new features. I plan a roadmap for this.
+
+1.   Like **OR** case add **AND** case
+
+2.  This version search string where it occurs, doesn't mind at the beginning, middle or end of the word. Add an alternative search that starts from beginning of the word.
+
+3.  **Exclude** data contains specific keywords
+
+4.  Benchmark how fast when data gets bigger.
+
+5.  Peer code review
+
+    ...
+
+n. Submit CRAN
+
+\
+\
+\
+------------------------------- **This Post Made with** `r fontawesome::fa("r-project", fill = "steelblue", height=20)` **by** `r emo::ji("heart")` ---------------------------------
+
+
