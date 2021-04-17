@@ -2157,7 +2157,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://dbi.r-dbi.org/reference/dbListTables.html'>dbListTables</a></span><span class='op'>(</span><span class='va'>con</span><span class='op'>)</span>
 </code></pre>
 </div>
-<pre><code>[1] &quot;videogames_data&quot;  &quot;videogames_price&quot; &quot;higherthan_80&quot;   </code></pre>
+<pre><code>character(0)</code></pre>
 </div>
 <p>That has no table in it.<br />
 </p>
@@ -2180,7 +2180,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://dbi.r-dbi.org/reference/dbListTables.html'>dbListTables</a></span><span class='op'>(</span><span class='va'>con</span><span class='op'>)</span>
 </code></pre>
 </div>
-<pre><code>[1] &quot;higherthan_80&quot;    &quot;videogames_data&quot;  &quot;videogames_price&quot;</code></pre>
+<pre><code>[1] &quot;videogames_data&quot;  &quot;videogames_price&quot;</code></pre>
 </div>
 <p>Now <strong>dbListTables(con)</strong> returns with value : [1] “videogames_data” “videogames_price”</p>
 <p>Tables’s fields -&gt;<br />
